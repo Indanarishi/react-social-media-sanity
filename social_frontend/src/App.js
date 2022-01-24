@@ -1,10 +1,20 @@
 
+// react router
+import { Routes, Route, useNavigate } from "react-router-dom";
+
+// container
+import Home from "./container/Home";
+
+// components
+import Login from "./components/Login";
+
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello World
-    </h1>
+    <Routes>
+      <Route path="login" element={<Login />} />
+      <Route path="/*" element={<Home />} />
+    </Routes>
   );
 }
 
