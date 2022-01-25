@@ -7,6 +7,9 @@ import { Link, Route, Routes } from 'react-router-dom'
 import { client } from "../client";
 import { userQuery } from "../utils/data";
 
+// local storage
+import { fetchUser } from "../utils/fetchUser";
+
 // assets
 import logo from '../assets/logo.png'
 
@@ -27,9 +30,7 @@ const Home = () => {
     const scrollRef = useRef(null)
 
     // local storage
-    const userInfo = localStorage.getItem('user') !== 'undefined' 
-        ? JSON.parse(localStorage.getItem('user')) 
-        : localStorage.clear()
+    const userInfo = fetchUser()
 
     useEffect(() => {
         const query = userQuery(userInfo?.googleId)
